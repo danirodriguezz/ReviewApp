@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('title')
-    Hola Mundo
+    ReviewApp
 @endsection
 
 @section('content')
