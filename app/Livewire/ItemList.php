@@ -13,6 +13,7 @@ class ItemList extends Component
     use WithPagination;
 
     public $filter = "all";
+    public $page = 1;
 
     public function setFilter($filter) 
     {
@@ -48,11 +49,11 @@ class ItemList extends Component
      */
     private function paginateCollection($items, $perPage)
     {
-        $currentPage = $this->page ?? 1;
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $itemsForCurrentPage = $items->forPage($currentPage, $perPage);
 
         return new LengthAwarePaginator(
-            $itemsForCurrentPage,
+            $itemsForCurrentPage->values(),
             $items->count(),
             $perPage,
             $currentPage,
