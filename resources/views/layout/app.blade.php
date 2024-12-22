@@ -17,22 +17,35 @@
             <a href="{{ route('home.index') }}" class="text-2xl sm:text-3xl font-bold text-white">
                 ReviewApp
             </a>
-            <nav class="flex gap-10 items-center">
-                <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Iniciar Sesión</a>
-                <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Crear Cuenta</a>
-                <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Películas</a>
-                <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Series</a>
-                <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Libros</a>
+            
+            <!-- Botón del menú hamburguesa -->
+            <button id="menu-toggle" class="sm:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
 
+            <nav  id="menu" class="hidden sm:flex flex-col sm:flex-row items-center gap-5 sm:gap-10 bg-gray-900 sm:bg-transparent p-5 sm:p-0 absolute sm:static top-[4.5rem] left-0 w-full sm:w-auto">
+                <div class="flex flex-col gap-5 sm:gap-10 sm:flex-row">
+                    @guest    
+                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Iniciar Sesión</a>
+                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Crear Cuenta</a>
+                    @endguest
+                    @auth    
+                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Películas</a>
+                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Series</a>
+                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Libros</a>
+                    @endauth
+                </div>
             </nav>
         </div>
     </header>
-
     <!-- Contenido -->
     <main class="mt-16 container mx-auto">
         @yield('content', 'Text')
     </main>
 
     @livewireScripts
+    @vite('resources/js/navBar.js')
 </body>
 </html>
