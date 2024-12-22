@@ -13,9 +13,15 @@ class ItemList extends Component
     use WithPagination;
 
     public $filter = "all";
-    public $page = 1;
+    public $search = '';
 
-    public function setFilter($filter) 
+    public function filterItems()
+    {
+        // Reinicia la paginación si cambias los resultados.
+        $this->resetPage();
+    }
+
+    public function setFilter($filter)
     {
         $this->filter = $filter;
         $this->resetPage();
@@ -24,19 +30,26 @@ class ItemList extends Component
     public function render()
     {
         // Obtener los datos segun el filtro
-        switch($this->filter) {
+        switch ($this->filter) {
             case 'movies':
-                $items = Movie::paginate(12);
+                $items = Movie::when($this->search, function($query) {
+                    $query->where('titulo', 'like', '%' . $this->search . '%');
+                })->paginate(12);
                 break;
             case 'series':
-                $items = Serie::paginate(12);
+                $items = Serie::when($this->search, function($query) {
+                    $query->where('titulo', 'like', '%' . $this->search . '%');
+                })->paginate(12);
                 break;
             default:
                 // Mostrar todos los elementos
-                $movies = Movie::all();
-                $series = Serie::all();
+                $movies = Movie::when($this->search, function($query) {
+                    $query->where('titulo', 'like', '%' . $this->search . '%');
+                })->get();
+                $series = Serie::when($this->search, function($query) {
+                    $query->where('titulo', 'like', '%' . $this->search . '%');
+                })->get();
                 $allItems = $movies->merge($series)->sortBy('titulo');
-
                 $items = $this->paginateCollection($allItems, 12);
         }
 

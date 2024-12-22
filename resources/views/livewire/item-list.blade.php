@@ -1,4 +1,15 @@
 <div>
+    <div class="relative">
+      <svg class="w-6 h-6 text-gray-500 absolute left-3 top-1/2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+      </svg>
+      <input  
+              wire:model.debounce.300ms="search"
+              wire:keyup="filterItems" 
+              class="mt-6 bg-transparent border border-gray-500 p-4 pl-12 rounded-xl text-gray-300" 
+              type="text"
+              placeholder="Busca tu pelicula o serie favorita">
+    </div>
     <div class="flex space-x-4 mt-20 backdrop-blur-xl  p-3 rounded-lg bg-blue-950/30 w-fit">
       <button 
         class="px-7 py-2 rounded {{ $filter == "all" ? 'bg-indigo-600 text-white font-semibold' : 'hover:bg-indigo-600 text-gray-400' }}"
@@ -16,11 +27,16 @@
         > 
         Series
       </button>
-      <button class="px-4 py-2 rounded  hover:bg-indigo-600 text-gray-400">Libros</button>
     </div>
 
-    <div class="mt-10">
-        <h2 class="text-xl text-gray-400 font-bold">Todas<span class="text-sm"> (100)</span></h2>
+    
+      @if ($items->isEmpty())
+      <div class="mt-10">
+          <p class="text-gray-300 mt-4 text-center">No se han encontrado resultados.</p>
+      </div>
+      @else
+      <div class="mt-10">
+        <h2 class="text-xl text-gray-400 font-bold">Todas<span class="text-sm"> ({{ $items->count() }})</span></h2>
         <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {{-- Card de la pelicula --}}
             @foreach ($items as $item)    
@@ -45,8 +61,9 @@
             @endforeach
             {{-- Fin de la card la pelicula --}}
         </div>
-    </div>
-    <div class="mt-6 mb-6">
-      {{ $items->links() }}
-    </div>
+      </div>
+      <div class="mt-6 mb-6">
+        {{ $items->links() }}
+      </div>
+      @endif
 </div>
