@@ -28,13 +28,17 @@
             <nav  id="menu" class="hidden sm:flex flex-col sm:flex-row items-center gap-5 sm:gap-10 bg-gray-900 sm:bg-transparent p-5 sm:p-0 absolute sm:static top-[4.5rem] left-0 w-full sm:w-auto">
                 <div class="flex flex-col gap-5 sm:gap-10 sm:flex-row">
                     @guest    
-                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Iniciar Sesión</a>
-                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Crear Cuenta</a>
+                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="{{ route('login.index')}}">Iniciar Sesión</a>
+                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="{{ route('register.index')}}">Crear Cuenta</a>
                     @endguest
                     @auth    
                     <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Películas</a>
                     <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Series</a>
-                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Libros</a>
+                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Perfil</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300">Cerrar Sesión</button>
+                    </form>
                     @endauth
                 </div>
             </nav>
