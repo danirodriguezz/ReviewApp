@@ -43,7 +43,7 @@
         <div class="mt-4 flex justify-center">
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {{-- Card de la pelicula --}}
-              @foreach ($items as $item)    
+              @foreach ($items as $item)
               <div class="max-w-xs backdrop-blur-xl bg-blue-950/30 shadow-lg rounded-lg overflow-hidden">
                   <!-- Imagen de la película -->
                   <div class="relative">
@@ -59,7 +59,7 @@
                   
                   <!-- Título de la película -->
                   <div class="p-4">
-                    <a href="#" class="text-lg font-bold text-white cursor-pointer">{{ $item->titulo }}</a>
+                    <a href="{{$item->tipo === "pelicula" ? route('movie.show', $item->id) : route('serie.show', $item->id)}}" class="text-lg font-bold text-white cursor-pointer">{{ $item->titulo }}</a>
                   </div>
               </div>
               @endforeach
