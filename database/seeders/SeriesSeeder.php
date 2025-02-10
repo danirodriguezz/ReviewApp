@@ -24,6 +24,10 @@ class SeriesSeeder extends Seeder
 
         // Inserta los datos en la base de datos
         foreach ($data as $row) {
+            // Si la fila no tiene el mismo número de elementos que los encabezados, la ignoramos
+            if (count($row) !== count($headers)) {
+                continue;
+            }
             // Crea un array asociativo usando los encabezados
             $rowData = array_combine($headers, $row);
             

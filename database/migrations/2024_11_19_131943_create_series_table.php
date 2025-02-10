@@ -19,6 +19,7 @@ return new class extends Migration
             $table->float('puntuacion');
             $table->string('imagen_path');
             $table->string('banner_path');
+            $table->string('tipo')->default('serie');
             $table->timestamps();
         });
     }
