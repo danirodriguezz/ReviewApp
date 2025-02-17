@@ -32,8 +32,8 @@
                     <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="{{ route('register.index')}}">Crear Cuenta</a>
                     @endguest
                     @auth    
-                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Películas</a>
-                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Series</a>
+                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="{{ route('movie.index') }}">Mis Películas</a>
+                    <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="{{ route('series.index') }}">Mis Series</a>
                     <a class="text-sm font-semibold text-white hover:text-indigo-400 transition ease-in-out duration-300" href="">Perfil</a>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf

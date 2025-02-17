@@ -24,6 +24,5 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movie.show');
 Route::get('/series/{id}', [SerieController::class, 'show'])->name('serie.show');
 
-
-
-
+Route::get('/mymovies', [MovieController::class, 'index'])->name('movie.index');
+Route::get('/myseries', [SerieController::class, 'index'])->name('series.index');

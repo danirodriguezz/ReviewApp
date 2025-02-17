@@ -57,6 +57,13 @@
                         {{ $genres->pluck('name')->implode(', ') }}
                     </p>
                 </div>
+
+                @auth
+                    @livewire('lista-de-seguimiento', [
+                        'contenidoId' => $movie->id,
+                        'tipoContenido' => $movie->tipo
+                    ])
+                @endauth
             </div>
         </div>
     </div>
