@@ -49,6 +49,13 @@
                     <h3 class="mt-7 text-sm font-bold uppercase text-gray-400">Fecha de lanzamiento</h3>
                     <p class="text-gray-200 mt-2">{{ \Carbon\Carbon::parse($serie->fecha_lanzamiento)->format('d-m-Y') }}</p>
                 </div>
+
+                @auth
+                    @livewire('lista-de-seguimiento', [
+                        'contenidoId' => $serie->id,
+                        'tipoContenido' => $serie->tipo
+                    ])
+                @endauth
             </div>
         </div>
     </div>
