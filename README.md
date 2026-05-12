@@ -52,20 +52,20 @@ ReviewApp es una aplicación web desarrollada con Laravel y Livewire que permite
 
 ## Mockups de Ordenador
 
-![Mockup de escitorio](./imagenes/escritorio/Captura%20desde%202025-04-30%2010-45-20.png)
+![Mockup de escitorio](./docs/mockups/escritorio1.png)
 
-![Mockup de escitorio](./imagenes/escritorio/Captura%20desde%202025-04-30%2010-46-39.png)
+![Mockup de escitorio](./docs/mockups/escritorio2.png)
 
-![Mockup de escitorio](./imagenes/escritorio/Captura%20desde%202025-04-30%2010-46-46.png)
+![Mockup de escitorio](./docs/mockups/escritorio3.png)
 
-![Mockup de escitorio](./imagenes/escritorio/Captura%20desde%202025-04-30%2010-47-18.png)
+![Mockup de escitorio](./docs/mockups/escritorio3.png)
 
-![Mockup de escitorio](./imagenes/escritorio/Captura%20desde%202025-04-30%2010-47-47.png)
+![Mockup de escitorio](./docs/mockups/escritorio4.png)
 
 ## Mockups de Movil
 
-![Mockup de escitorio](./imagenes/movil/Captura%20desde%202025-04-30%2010-48-19.png)
+![Mockup de escitorio](./docs/mockups/movil1.png)
 
-![Mockup de escitorio](./imagenes/movil/Captura%20desde%202025-04-30%2011-35-09.png)
+![Mockup de escitorio](./docs/mockups/movil2.png)
 
-![Mockup de escitorio](./imagenes/movil/Captura%20desde%202025-04-30%2011-35-29.png)
+![Mockup de escitorio](./docs/mockups/movil3.png)
